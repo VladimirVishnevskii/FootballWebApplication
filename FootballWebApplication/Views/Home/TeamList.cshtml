@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FootballWebApplication.Models.Team>
+
+@{
+    ViewData["Title"] = "TeamList";
+}
+
+<h1>TeamList</h1>
+
+<p>
+    <a asp-action="Create">Добавить игрока</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                    @Html.ActionLink("Удалить команду", "DeleteTeam", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

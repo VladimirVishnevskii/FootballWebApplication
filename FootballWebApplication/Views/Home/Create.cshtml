@@ -1,0 +1,50 @@
+﻿@model Player
+
+<h2>Add Football Player</h2>
+
+
+        <!-- Форма добавления футболиста -->
+        <form asp-action="Create" method="post">
+            <label for="FirstName">First Name:</label>
+            <input type="text" asp-for="Name" required />
+    <br>
+            <label for="LastName">Last Name:</label>
+            <input type="text" asp-for="SecondName" required />
+    <br>
+            <label for="Gender">Gender:</label>
+            <select asp-for="Gender" asp-items="@(new SelectList(new List<string> { "Male", "Female" }))">
+                <option value="">Select Gender</option>
+            </select>
+    <br>
+            <label for="DateOfBirth">Date of Birth:</label>
+            <input type="date" asp-for="DateBirthday" required />
+    <br>
+            <label for="Country">Country:</label>
+            <select asp-for="Country" asp-items="@(new SelectList(new List<string> { "Russia", "USA", "Italy" }))">
+                <option value="">Select Country</option>
+            </select>
+    <br>
+
+
+            <label for="Team">Team Name:</label>
+            <select asp-for="TeamName" asp-items="@(new SelectList(ViewBag.Teams, "TeamName", "TeamName"))">
+                <option value="">Select Team</option>
+            </select>
+    <br>
+
+    <button type="submit" class="btn btn-primary">Add Player</button>
+        </form>
+
+<br>
+<br>
+<br>
+
+<div>
+
+        <form asp-action="CreateTeam" method="post">
+            <label for="Name">Team Name:</label>
+            <input type="text" asp-for="TeamName" required />
+
+        <button type="submit" class="btn btn-info">Добавить команду</button>
+        </form>
+        </div>
