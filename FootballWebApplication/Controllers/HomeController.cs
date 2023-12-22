@@ -94,6 +94,7 @@ namespace FootballWebApplication.Controllers
 
         public IActionResult Edit(int Id)
         {
+            ViewBag.Teams = db.Teams.ToList();
             Player? player = db.Players.FirstOrDefault(x => x.Id == Id);
             if (player != null)
             {
